@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class Map {
 
@@ -40,6 +44,13 @@ public class Map {
 		frame = new JFrame();
 		frame.setAlwaysOnTop(true);
 		frame.getContentPane().setBackground(Color.WHITE);
+		
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel, BorderLayout.NORTH);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\k8\\Downloads\\pirate.png"));
+		frame.getContentPane().add(lblNewLabel, BorderLayout.WEST);
 		frame.setBackground(Color.WHITE);
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1024, 740);
