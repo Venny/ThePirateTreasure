@@ -2,17 +2,9 @@ package Desktop;
 
 import java.awt.EventQueue;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-
 import java.awt.Color;
 import java.awt.Font;
-
-import javax.swing.JPanel;
-
-import java.awt.BorderLayout;
-
-import javax.swing.JLabel;
 
 public class Map {
 
@@ -48,13 +40,6 @@ public class Map {
 		frame = new JFrame();
 		frame.setAlwaysOnTop(true);
 		frame.getContentPane().setBackground(Color.WHITE);
-		
-		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		
-		JLabel label = new JLabel(new ImageIcon("C:\\Users\\k8\\Downloads\\pirate.png"));
-		label.setIconTextGap(2);
-		panel.add(label);
 		frame.setBackground(Color.WHITE);
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1024, 740);
