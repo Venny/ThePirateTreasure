@@ -14,37 +14,37 @@ public class NewMap {
 	
 	public NewMap(){
 		
-		ImageIcon img = new ImageIcon("C:\\Users\\k8\\s.png");
+		ImageIcon img = new ImageIcon("res/s.png");
 		sand = img.getImage();
-		img = new ImageIcon("C:\\Users\\k8\\w.png");
+		img = new ImageIcon("res/w.png");
 		water = img.getImage();
-		img = new ImageIcon("C:\\Users\\k8\\f.png");
+		img = new ImageIcon("res/f.png");
 		forest = img.getImage();
-		img = new ImageIcon("C:\\Users\\k8\\java.png");
+		img = new ImageIcon("res/java.png");
 		java = img.getImage();
-		img = new ImageIcon("C:\\Users\\k8\\computer.png");
+		img = new ImageIcon("res/computer.png");
 		computer = img.getImage();
-		img = new ImageIcon("C:\\Users\\k8\\internet.png");
+		img = new ImageIcon("res/internet.png");
 		internet = img.getImage();
-		img = new ImageIcon("C:\\Users\\k8\\eclipse.png");
+		img = new ImageIcon("res/eclipse.png");
 		eclipse = img.getImage();
-		img = new ImageIcon("C:\\Users\\k8\\coffee.png");
+		img = new ImageIcon("res/coffee.png");
 		coffee = img.getImage();
-		img = new ImageIcon("C:\\Users\\k8\\github.png");
+		img = new ImageIcon("res/github.png");
 		github = img.getImage();
-		img = new ImageIcon("C:\\Users\\k8\\cookie.png");
+		img = new ImageIcon("res/cookie.png");
 		cookie = img.getImage();
-		img = new ImageIcon("C:\\Users\\k8\\hb.png");
+		img = new ImageIcon("res/hb.png");
 		hb = img.getImage();
-		img = new ImageIcon("C:\\Users\\k8\\mouse.png");
+		img = new ImageIcon("res/mouse.png");
 		mouse = img.getImage();
-		img = new ImageIcon("C:\\Users\\k8\\palace.png");
+		img = new ImageIcon("res/palace.png");
 		palace = img.getImage();
 		
-		img = new ImageIcon("C:\\Users\\k8\\parrot.png");
+		img = new ImageIcon("res/parrot.png");
 		parrot = img.getImage();
 		
-		img = new ImageIcon("C:\\Users\\k8\\flag.png");
+		img = new ImageIcon("res/flag.png");
 		flag = img.getImage();
 		
 		openFile();
@@ -105,7 +105,7 @@ public class NewMap {
 	
 	public void openFile(){
 		try{
-		m = new Scanner(new File("C:\\Users\\k8\\TreasureMap.txt"));
+		m = new Scanner(new File("res/TreasureMap.txt"));
 	}catch(Exception e){
 		System.out.println("error loading map");
 	}

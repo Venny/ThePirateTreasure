@@ -12,7 +12,8 @@ public class Player {
 	
 	public Player(){
 		
-		ImageIcon img = new ImageIcon("C:\\Users\\k8\\sparrow.png");
+		ImageIcon img = new ImageIcon("res/sparrow.png");
+		//ImageIcon img = new ImageIcon("C:\\Users\\k8\\sparrow.png");
 		player = img.getImage();
 	
 		
