@@ -14,37 +14,37 @@ public class NewMap {
 	
 	public NewMap(){
 		
-		ImageIcon img = new ImageIcon("res/s.png");
+		ImageIcon img = new ImageIcon("src/res/s.png");
 		sand = img.getImage();
-		img = new ImageIcon("res/w.png");
+		img = new ImageIcon("src/res/w.png");
 		water = img.getImage();
-		img = new ImageIcon("res/f.png");
+		img = new ImageIcon("src/res/f.png");
 		forest = img.getImage();
-		img = new ImageIcon("res/java.png");
+		img = new ImageIcon("src/res/java.png");
 		java = img.getImage();
-		img = new ImageIcon("res/computer.png");
+		img = new ImageIcon("src/res/computer.png");
 		computer = img.getImage();
-		img = new ImageIcon("res/internet.png");
+		img = new ImageIcon("src/res/internet.png");
 		internet = img.getImage();
-		img = new ImageIcon("res/eclipse.png");
+		img = new ImageIcon("src/res/eclipse.png");
 		eclipse = img.getImage();
-		img = new ImageIcon("res/coffee.png");
+		img = new ImageIcon("src/res/coffee.png");
 		coffee = img.getImage();
-		img = new ImageIcon("res/github.png");
+		img = new ImageIcon("src/res/github.png");
 		github = img.getImage();
-		img = new ImageIcon("res/cookie.png");
+		img = new ImageIcon("src/res/cookie.png");
 		cookie = img.getImage();
-		img = new ImageIcon("res/hb.png");
+		img = new ImageIcon("src/res/hb.png");
 		hb = img.getImage();
-		img = new ImageIcon("res/mouse.png");
+		img = new ImageIcon("src/res/mouse.png");
 		mouse = img.getImage();
-		img = new ImageIcon("res/palace.png");
+		img = new ImageIcon("src/res/palace.png");
 		palace = img.getImage();
 		
-		img = new ImageIcon("res/parrot.png");
+		img = new ImageIcon("src/res/parrot.png");
 		parrot = img.getImage();
 		
-		img = new ImageIcon("res/flag.png");
+		img = new ImageIcon("src/res/flag.png");
 		flag = img.getImage();
 		
 		openFile();
@@ -105,7 +105,7 @@ public class NewMap {
 	
 	public void openFile(){
 		try{
-		m = new Scanner(new File("res/TreasureMap.txt"));
+		m = new Scanner(new File("src/res/TreasureMap.txt"));
 	}catch(Exception e){
 		System.out.println("error loading map");
 	}
