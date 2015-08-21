@@ -7,14 +7,14 @@ public class Main {
 	
 	public static void main(String[] args){
 		Scanner scanner = new Scanner(System.in);
-		int funcCount = Integer.parseInt(scanner.nextLine());
-		ArrayList<Function> allFuncs = new ArrayList<>();
-		
-		for(int i = 0; i < funcCount; i++){
-			String nextFunc = scanner.nextLine();
-			Function func = new Function(nextFunc);
-			allFuncs.add(func);
-		}
+		ArrayList<Argument> allFuncs = new ArrayList<>();
+		evaluateNextLine(scanner);
+	}
+	
+	private static void evaluateNextLine(Scanner scanner){
+		String nextLine = scanner.nextLine();
+		System.out.println(nextLine);
+		evaluateNextLine(scanner);
 	}
 
 }
