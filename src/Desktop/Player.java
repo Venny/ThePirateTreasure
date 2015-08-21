@@ -1,4 +1,4 @@
-package ProjectTraining;
+package Desktop;
 
 import java.awt.*;
 
