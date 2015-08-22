@@ -1,24 +1,14 @@
 package App;
 
+
 public class Function extends Argument {
-	private String source;
-	private String type;
-	private String name;
 	private String argumentName;
 	
 	public Function(String source) {
 		super(source);
-		this.source = source;
-	}
-
-	@Override
-	public String getName() {
-		return null;
-	}
-
-	@Override
-	public String getArgumentName() {
-		return null;
+		super.name = source.split(" ")[1];
+		String fParts1 = source.split( "\\(" )[1];
+		super.type = fParts1.split("\\)")[0];
 	}
 
 	@Override

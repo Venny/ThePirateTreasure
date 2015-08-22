@@ -9,7 +9,7 @@ public class Executable {
 		
 	}
 	
-	public int evaluate(int x){
-		return x;
+	public int evaluate(){
+		return 0;
 	}
 }
