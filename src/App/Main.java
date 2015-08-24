@@ -28,5 +28,11 @@ public class Main {
 		System.out.println(Context.allArgs.toString());
 		evaluateNextLine(scanner);
 	}
+	
+	/*
+	 * Output examples:
+	 * 	( 5 + 7 ) * 2 // 5 7 + 2 *
+	 * 	5 + 7 / 2    // 5 7 2 / +
+	 * */
 
 }

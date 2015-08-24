@@ -10,7 +10,7 @@ public abstract class Argument {
     public Argument(String source){
         this.source = source;
         String[] fParts = source.split(" = ");
-        this.body = fParts[1];
+        this.body = fParts[1].split(";")[0];
        
     }
 
@@ -30,5 +30,5 @@ public abstract class Argument {
     	return type;
     }
     
-    public abstract int evaluate(int x);
+    public abstract int evaluate(int[] args);
 }
