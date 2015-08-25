@@ -14,11 +14,11 @@ public class Executable {
 	}
 	
 	public int evaluate(){
-		String[] tokens = composition.trim().split(" ");
 		Queue output = postfix(composition);
-		
-		System.out.println(output.toString() + " ......");
-		return 0;
+		System.out.println(output.toString());
+		int result = calculate(output);
+		System.out.println(output.toString() + " ......" + result);
+		return result;
 	}
 	
 	private boolean isInteger(String token){
@@ -37,7 +37,7 @@ public class Executable {
     /*
      * Implementing Shunting Yard Algorithm
      */
-    private Queue postfix(String input){
+    private Queue<String> postfix(String input){
     	Queue<String> outputQueue = new LinkedList<>();
     	Stack<String> operatorStack = new Stack<>();
     	boolean bottomOperator = false;
@@ -66,7 +66,7 @@ public class Executable {
     		} else{
     			outputQueue.add(token);
     		}    		
-    	}
+    	}    	
     	
     	// While we have operators
 		while(!operatorStack.isEmpty()){
@@ -75,6 +75,37 @@ public class Executable {
 		
     	return outputQueue;
     }
+    
+	
+	/*
+     * Implementing Postfix Calculator Algorithm
+     */
+	private int calculate(Queue<String> postfix){
+		Stack<Integer> stack = new Stack<>();
+		int result = 0;
+		while(!postfix.isEmpty()){
+			if(ops.containsKey(postfix.peek()) && !stack.isEmpty()){
+				int rightInt = stack.pop();
+				int leftInt = stack.pop();
+				// Get the result
+				result = postfix.peek().compareTo("*") == 0 ? leftInt * rightInt :   
+						 postfix.peek().compareTo("/") == 0 ? leftInt / rightInt :  
+						 postfix.peek().compareTo("+") == 0 ? leftInt + rightInt :  
+															  leftInt - rightInt; 
+				
+				// Add the result to the stack
+				stack.add(result);
+				// remove the operator from the postfix queue
+				postfix.poll(); 
+			} else {
+				if(isInteger(postfix.peek())){
+					stack.add(Integer.parseInt(postfix.poll()));
+				}
+				// TO DO - add code for presenting custom functions
+			}
+		}
+		return result;		
+	}
 
 	private enum Operator {
 		ADD(1), SUBSTRACT(2), MULTIPLY(3), DIVIDE(4);
@@ -94,5 +125,5 @@ public class Executable {
     private boolean isHigerPrecedence(String operator, String sub){
     	return (ops.containsKey(sub) && ops.get(sub).precedence >= ops.get(operator).precedence);
     }
-    
+        
 }
