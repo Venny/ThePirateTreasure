@@ -30,5 +30,5 @@ public abstract class Argument {
     	return type;
     }
     
-    public abstract int evaluate(int[] args);
+    public abstract int evaluate(String args);
 }

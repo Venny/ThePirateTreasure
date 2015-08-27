@@ -6,38 +6,16 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Stack;
 
-public class Executable {
-	private String composition;
-	
-	public Executable(String composition){
-		this.composition = composition;
-	}
-	
-	public int evaluate(){
+public class Executable {	
+	public static int evaluate(String composition){
 		Queue output = postfix(composition);
-		System.out.println(output.toString());
-		int result = calculate(output);
-		System.out.println(output.toString() + " ......" + result);
-		return result;
-	}
-	
-	private boolean isInteger(String token){
-		for(char letter:token.toCharArray()){
-			if(!Character.isDigit(letter)){
-				return false;
-			}
-		}
-		return true;
-	}
-	
-	private boolean isRealFunction(String token){
-		return false;
+		return calculate(output);
 	}
 	
     /*
      * Implementing Shunting Yard Algorithm
      */
-    private Queue<String> postfix(String input){
+    private static Queue<String> postfix(String input){
     	Queue<String> outputQueue = new LinkedList<>();
     	Stack<String> operatorStack = new Stack<>();
     	boolean bottomOperator = false;
@@ -55,7 +33,7 @@ public class Executable {
     		} else if(token.equals("(")){
     			operatorStack.push(token);
     		
-    		// left parenthesis
+    		// right parenthesis
     		} else if(token.equals(")")){
     			while(!operatorStack.peek().equals("(")){
     				outputQueue.add(operatorStack.pop());
@@ -80,7 +58,7 @@ public class Executable {
 	/*
      * Implementing Postfix Calculator Algorithm
      */
-	private int calculate(Queue<String> postfix){
+	private static int calculate(Queue<String> postfix){
 		Stack<Integer> stack = new Stack<>();
 		int result = 0;
 		while(!postfix.isEmpty()){
@@ -100,14 +78,25 @@ public class Executable {
 			} else {
 				if(isInteger(postfix.peek())){
 					stack.add(Integer.parseInt(postfix.poll()));
+				} else {
+					String[] argArray = postfix.poll().split("\\(");	
+					String subArgs = "";
+					if(argArray.length > 1){
+						subArgs = argArray[1].substring(0, argArray[1].length()-1);  // remove the right parenthesis
+					}	
+					int arg = getTheArgument(argArray[0]).evaluate(subArgs);
+					stack.add(arg);
 				}
-				// TO DO - add code for presenting custom functions
 			}
 		}
+		if(!stack.isEmpty()){
+			result = stack.pop();
+		}		
 		return result;		
 	}
 
-	private enum Operator {
+	
+	private static enum Operator {
 		ADD(1), SUBSTRACT(2), MULTIPLY(3), DIVIDE(4);
 		final int precedence;
 		Operator(int p){
@@ -115,15 +104,32 @@ public class Executable {
 		}
 	}
 	
-	private Map<String, Operator> ops = new HashMap<String, Operator>() {{
+	private static Map<String, Operator> ops = new HashMap<String, Operator>() {{
         put("+", Operator.ADD);
         put("-", Operator.SUBSTRACT);
         put("*", Operator.MULTIPLY);
         put("/", Operator.DIVIDE);
     }};
     
-    private boolean isHigerPrecedence(String operator, String sub){
+    private static boolean isHigerPrecedence(String operator, String sub){
     	return (ops.containsKey(sub) && ops.get(sub).precedence >= ops.get(operator).precedence);
     }
+    
+	public static boolean isInteger(String token){
+		for(char letter:token.toCharArray()){
+			if(!Character.isDigit(letter)){
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	private static Argument getTheArgument(String token){	
+		if(Context.allArgs.containsKey(token)){
+			return Context.allArgs.get(token);			
+		}
+		System.err.println("The argument '" + token + "' is undefined.");
+		return null;
+	}
         
 }
