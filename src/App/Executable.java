@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Stack;
-import java.util.regex.Pattern;
 
 public class Executable {
 	public static int evaluate(String composition) {
@@ -79,7 +78,7 @@ public class Executable {
 					stack.add(Integer.parseInt(postfix.poll()));
 				} else {
 					System.out.println("Array: " + postfix.peek());
-					String[] argArray = postfix.poll().split("\\(", 2);
+					String[] argArray = postfix.poll().split("\\(", 2); //Splitting the string only in 2 parts
 					String subArgs = "";
 					// remove the right parenthesis
 					if (argArray.length > 1) {

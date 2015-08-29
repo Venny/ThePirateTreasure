@@ -15,7 +15,7 @@ public class Main {
 		Context.allArgs.put("b", b);
 		Context.allArgs.put("a", a);
 		Argument newF1 = new Function("def inc (integer -> integer) x = x + 1");
-		Argument newF2 = new Function("def squareSum (integer -> integer -> integer) x y = x ^ 2 + y ^ 2");
+		Argument newF2 = new Function("def squareSum (integer -> integer -> integer) x y = x * 2 + y * 2");
 		Context.allArgs.put("inc", newF1);
 		Context.allArgs.put("squareSum", newF2);
 		String nextLine = scanner.nextLine().trim();
