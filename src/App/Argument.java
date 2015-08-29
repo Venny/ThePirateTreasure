@@ -10,7 +10,7 @@ public abstract class Argument {
     public Argument(String source){
         this.source = source;
         String[] fParts = source.split(" = ");
-        this.body = fParts[1].split(";")[0];
+		this.body = fParts[1].split(";")[0];
        
     }
 

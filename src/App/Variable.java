@@ -1,7 +1,7 @@
 package App;
 
 public class Variable extends Argument {
-	
+
 	public Variable(String source) {
 		super(source);
 		String[] fParts = source.split(" = ")[0].split(" ");
@@ -11,10 +11,10 @@ public class Variable extends Argument {
 
 	@Override
 	public int evaluate(String args) {
-		if(Executable.isInteger(body)){
+		if (Executable.isInteger(body)) {
 			return Integer.parseInt(body);
 		}
 		return Executable.evaluate(body);
 	}
-	
+
 }
