@@ -42,8 +42,13 @@ public class Main {
 	}
 
 	/*
-	 * Output examples: ( 5 + 7 ) * 2 // 5 7 + 2 * --> 24 
+	 * Output examples:
+	 * ( 5 + 7 ) * 2 // 5 7 + 2 * --> 24
 	 * 5 + 7 / 2 // 5 7 2 / +  --> 8
+	 * ( 10 + 5 ) / ( 8 / ( 2 + 2 ) + 1 )
+	 * a
+	 * inc(b)
+	 * squareSum(inc(a),inc(b))
 	 */
 
 }

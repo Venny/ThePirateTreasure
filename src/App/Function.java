@@ -39,12 +39,9 @@ public class Function extends Argument {
 			for (int n = 0; n < argNames.length; n++) {
 				if (bodyParts[i].equals(argNames[n])) {
 					temp = realArgs[n];
-					System.out.println("111111: " + newBody);
 				}
-				//System.out.println("argNames: " + argNames[n]);
 			}
 			newBody += temp + " ";
-			//System.out.println(newBody);
 		}
 		return newBody.trim();
 	}
