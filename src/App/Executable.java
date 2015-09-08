@@ -77,7 +77,7 @@ public class Executable {
 				if (isInteger(postfix.peek())) {
 					stack.add(Integer.parseInt(postfix.poll()));
 				} else {
-					System.out.println("Array: " + postfix.peek());
+					System.out.println("Execute argument: " + postfix.peek());
 					String[] argArray = postfix.poll().split("\\(", 2); //Splitting the string only in 2 parts
 					String subArgs = "";
 					// remove the right parenthesis
