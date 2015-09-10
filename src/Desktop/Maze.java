@@ -11,7 +11,7 @@ public class Maze {
 	
 	public Maze(){
 		JFrame f = new JFrame();
-		f.setTitle("Programmer of the Caribbean: The Long Way Home");
+		f.setTitle("Programmer of the Caribbean: The Long Journey Home");
 		f.setIconImage(Toolkit.getDefaultToolkit().getImage("res/flag.png"));
 		f.add(new Board());
 		f.setSize(1200,794);

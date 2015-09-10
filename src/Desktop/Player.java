@@ -13,11 +13,10 @@ public class Player {
 	public Player(){
 		
 		ImageIcon img = new ImageIcon("src/res/sparrow.png");
-		//ImageIcon img = new ImageIcon("C:\\Users\\k8\\sparrow.png");
 		player = img.getImage();
 	
 		
-		tileX = 1; //starting?
+		tileX = 1; //starting
 		tileY = 1;
 	}
 	
