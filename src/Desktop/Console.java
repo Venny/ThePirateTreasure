@@ -24,33 +24,36 @@ public class Console extends WindowAdapter implements WindowListener, ActionList
     private Thread reader;
     private Thread reader2;
     private boolean quit;
+    private String message;
 
     private final PipedInputStream pin=new PipedInputStream();
     private final PipedInputStream pin2=new PipedInputStream();
 
     Thread errorThrower; // just for testing (Throws an Exception at this Console
 
-    public Console() {
+    public Console(String message) {
         // create all components and add them
-        frame=new JFrame("Java Console");
+        frame = new JFrame("Java Console");
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         Dimension frameSize = new Dimension((int)(screenSize.width/2),(int)(screenSize.height/2));
         int x=(int)(frameSize.width/2);
         int y=(int)(frameSize.height/2);
         frame.setBounds(x,y,frameSize.width,frameSize.height);
 
+        this.message = message;
         input = new JTextField();
         input.setEditable(true);
 
         textArea = new JTextArea();
         textArea.setEditable(false);
-        JButton button = new JButton("clear");
+        JButton button = new JButton("Close");
 
         frame.getContentPane().setLayout(new BorderLayout());
         frame.getContentPane().add(input, BorderLayout.NORTH);
         frame.getContentPane().add(new JScrollPane(textArea),BorderLayout.CENTER);
         frame.getContentPane().add(button,BorderLayout.SOUTH);
         frame.setVisible(true);
+        frame.setDefaultCloseOperation(frame.HIDE_ON_CLOSE);
 
         frame.addWindowListener(this);
         button.addActionListener(this);
@@ -78,7 +81,7 @@ public class Console extends WindowAdapter implements WindowListener, ActionList
             textArea.append("Couldn't redirect STDERR to this console\n"+se.getMessage());
         }
 
-        quit=false; // signals the Threads that they should exit
+        quit = false; // signals the Threads that they should exit
 
         // Starting two seperate threads to read from the PipedInputStreams
         //
@@ -92,7 +95,7 @@ public class Console extends WindowAdapter implements WindowListener, ActionList
 
         // testing part
         // you may omit this part for your application
-        System.out.println("Hi");
+        System.out.println(message);
 
 
         // Testing part: simple an error thrown anywhere in this JVM will be printed on the Console
@@ -104,11 +107,11 @@ public class Console extends WindowAdapter implements WindowListener, ActionList
     }
 
     public synchronized void windowClosed(WindowEvent evt) {
-        quit=true;
+        quit = true;
         this.notifyAll(); // stop all threads
         try { reader.join(1000);pin.close();   } catch (Exception e){}
         try { reader2.join(1000);pin2.close(); } catch (Exception e){}
-        System.exit(0);
+        //System.exit(0);
     }
 
     public synchronized void windowClosing(WindowEvent evt) {
@@ -116,9 +119,9 @@ public class Console extends WindowAdapter implements WindowListener, ActionList
         frame.dispose();
     }
 
-    public synchronized void actionPerformed(ActionEvent evt)
-    {
+    public synchronized void actionPerformed(ActionEvent evt) {
         textArea.setText("");
+        frame.setVisible(false);
     }
 
     public synchronized void run() {
@@ -165,9 +168,8 @@ public class Console extends WindowAdapter implements WindowListener, ActionList
         return input;
     }
 
-    public static void main(String[] arg)
-    {
-        new Console(); // create console with not reference
+    public static void main(String[] arg) {
+        new Console("custom message"); // create console with not reference
     }
 
     @Override

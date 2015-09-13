@@ -17,6 +17,6 @@ public class Maze {
 		f.setSize(1200,794);
 		f.setLocationRelativeTo(null);
 		f.setVisible(true);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
 	}
 }

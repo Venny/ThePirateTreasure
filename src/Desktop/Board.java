@@ -6,7 +6,7 @@ import java.util.Random;
 
 import javax.swing.*;
 
-public class Board extends JPanel implements ActionListener{
+public class Board extends JPanel implements ActionListener {
 	
 	private Timer timer;
 	
@@ -41,31 +41,84 @@ public class Board extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		switch(questCounter){
 			case 0:
-				if(p.getTileX()==29 && p.getTileY()==1){
-					consoleQuize();
-					if(true){
-					questCounter++; Message1 = "Quests: 1/10";
+				if(p.getTileX()==29 && p.getTileY() == 1){
+					boolean quizAnswer = consoleQuiz();
+					if(quizAnswer){
+					questCounter++; Message1 = "Points: " + questCounter + "/10";
 					Message2 = "Ooops! \n It seems that \n the seller does\n not have a mouse\n to give you!";
 				}
-			};
-			break;
-		case 1: if(p.getTileX()==4 && p.getTileY()==14){if(true){questCounter++; Message1 = "Quests: 2/10";
-		 Message2 = "Next you will\n need the best\n Internet\n connection\n on the island!";}}; break;
-		case 2: if(p.getTileX()==27 && p.getTileY()==16){if(true){questCounter++; Message1 = "Quests: 3/10";
-		 Message2 = "Now that you\n have successfully\n connected to the\n web, you need to\n get your hands\n on Java!"; }}; break;
-		case 3: if(p.getTileX()==11 && p.getTileY()==2){if(true){questCounter++; Message1 = "Quests: 4/10";
-		 Message2 = "And you will\n also need an \nintegrated \ndevelopment\n environment - \n Eclipse! "; }}; break;
-		case 4: if(p.getTileX()==8 && p.getTileY()==21){if(true){questCounter++; Message1 = "Quests: 5/10";
-		 Message2 = "Before you get\n to work, I\n advise you to\n get a cup of \n delicious coffee!"; }}; break;
-		case 5: if(p.getTileX()==20 && p.getTileY()==6){if(true){questCounter++; Message1 = "Quests: 6/10"; 
-		 Message2 = "...And some\n yummy chocolate\n cookies to give\n you energy \n to code!";}}; break;
-		case 6: if(p.getTileX()==29 && p.getTileY()==15){if(true){questCounter++; Message1 = "Quests: 7/10"; 
-		 Message2 = "As you work on \n your project,you\n realise that you\n will need some help\n from those prodigies\n at HackBulgaria!";}}; break;
-		case 7: if(p.getTileX()==1 && p.getTileY()==3){if(true){questCounter++; Message1 = "Quests: 8/10";
-		 Message2 = "Everything is\n perfect now!\n The king is\n waiting for your\n code on GitHub!"; }}; break;
-		case 8: if(p.getTileX()==6 && p.getTileY()==23){if(true){questCounter++; Message1 = "Quests: 9/10"; 
-		 Message2 = "The king is\n satisfied, so he\n invites you to the\n palace to give\n you your prize -\n a trip home!";}}; break;
-		case 9: if(p.getTileX()==16 && p.getTileY()==12){if(true){questCounter++; Message1 = "Quests: 10/10"; }}; break;
+			}; break;
+		case 1:
+			if(p.getTileX()==4 && p.getTileY()==14){
+				boolean quizAnswer = consoleQuiz();
+				if(true){
+					questCounter++; Message1 = "Points: " + questCounter + " /10";
+		 			Message2 = "Next you will\n need the best\n Internet\n connection\n on the island!";
+				}
+			}; break;
+		case 2:
+			if(p.getTileX()==27 && p.getTileY()==16){
+				boolean quizAnswer = consoleQuiz();
+				if(true){
+					questCounter++; Message1 = "Points: " + questCounter + " /10";
+		 			Message2 = "Now that you\n have successfully\n connected to the\n web, you need to\n get your hands\n on Java!";
+				}
+			}; break;
+		case 3:
+			if(p.getTileX()==11 && p.getTileY()==2){
+				boolean quizAnswer = consoleQuiz();
+				if(true){
+					questCounter++; Message1 = "Points: " + questCounter + " /10";
+		 			Message2 = "And you will\n also need an \nintegrated \ndevelopment\n environment - \n Eclipse! ";
+				}
+			}; break;
+		case 4:
+			if(p.getTileX()==8 && p.getTileY()==21){
+				boolean quizAnswer = consoleQuiz();
+				if(true){
+					questCounter++; Message1 = "Points: " + questCounter + " /10";
+		 			Message2 = "Before you get\n to work, I\n advise you to\n get a cup of \n delicious coffee!";
+				}
+			}; break;
+		case 5:
+			if(p.getTileX()==20 && p.getTileY()==6){
+				boolean quizAnswer = consoleQuiz();
+				if(quizAnswer){
+					questCounter++; Message1 = "Points: " + questCounter + " /10";
+		 			Message2 = "...And some\n yummy chocolate\n cookies to give\n you energy \n to code!";
+				}
+			}; break;
+		case 6:
+			if(p.getTileX()==29 && p.getTileY()==15){
+				boolean quizAnswer = consoleQuiz();
+				if(quizAnswer){
+					questCounter++; Message1 = "Points: " + questCounter + " /10";
+		 			Message2 = "As you work on \n your project,you\n realise that you\n will need some help\n from those prodigies\n at HackBulgaria!";
+				}
+			}; break;
+		case 7:
+			if(p.getTileX()==1 && p.getTileY()==3){
+				boolean quizAnswer = consoleQuiz();
+				if(quizAnswer){
+					questCounter++; Message1 = "Points: " + questCounter + " /10";
+		 			Message2 = "Everything is\n perfect now!\n The king is\n waiting for your\n code on GitHub!";
+				}
+			}; break;
+		case 8:
+			if(p.getTileX()==6 && p.getTileY()==23){
+				boolean quizAnswer = consoleQuiz();
+				if(quizAnswer){
+					questCounter++; Message1 = "Points: " + questCounter + " /10";
+		 			Message2 = "The king is\n satisfied, so he\n invites you to the\n palace to give\n you your prize -\n a trip home!";
+				}
+			}; break;
+		case 9:
+			if(p.getTileX()==16 && p.getTileY()==12){
+				boolean quizAnswer = consoleQuiz();
+				if(quizAnswer){
+					questCounter++; Message1 = "Points: " + questCounter + " /10";
+				}
+			}; break;
 		}
 		repaint();
 	}
@@ -211,14 +264,13 @@ public class Board extends JPanel implements ActionListener{
 		}
 	}
 
-	private boolean consoleQuize(){
-		// Get random number betwee 1 and 100
-		Random rand = null;
+	private boolean consoleQuiz(){
+		// Get random number between 1 and 100
 		int min = 1;
 		int max = 100;
-		//int randomNum = rand.nextInt((max - min) + 1) + min;
+		int rand = min + (int)(Math.random()*max); ;
 
-		new Console();
-		return false;
+		new Console("Please make a calculation which result is: " + rand + ", but note that you have to use functions and variables.");
+		return true;
 	}
 }
