@@ -2,6 +2,7 @@ package Desktop;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Random;
 
 import javax.swing.*;
 
@@ -37,11 +38,17 @@ public class Board extends JPanel implements ActionListener{
             g.drawString(line, x, y += g.getFontMetrics().getHeight());
     }
 	@Override
-	public void actionPerformed(ActionEvent e) { 
-
+	public void actionPerformed(ActionEvent e) {
 		switch(questCounter){
-		case 0: if(p.getTileX()==29 && p.getTileY()==1){if(true){questCounter++; Message1 = "Quests: 1/10"; 
-		 Message2 = "Ooops! \n It seems that \n the seller does\n not have a mouse\n to give you!";}}; break;
+			case 0:
+				if(p.getTileX()==29 && p.getTileY()==1){
+					consoleQuize();
+					if(true){
+					questCounter++; Message1 = "Quests: 1/10";
+					Message2 = "Ooops! \n It seems that \n the seller does\n not have a mouse\n to give you!";
+				}
+			};
+			break;
 		case 1: if(p.getTileX()==4 && p.getTileY()==14){if(true){questCounter++; Message1 = "Quests: 2/10";
 		 Message2 = "Next you will\n need the best\n Internet\n connection\n on the island!";}}; break;
 		case 2: if(p.getTileX()==27 && p.getTileY()==16){if(true){questCounter++; Message1 = "Quests: 3/10";
@@ -202,5 +209,16 @@ public class Board extends JPanel implements ActionListener{
 		public void keyTyped(KeyEvent e){
 			
 		}
+	}
+
+	private boolean consoleQuize(){
+		// Get random number betwee 1 and 100
+		Random rand = null;
+		int min = 1;
+		int max = 100;
+		//int randomNum = rand.nextInt((max - min) + 1) + min;
+
+		new Console();
+		return false;
 	}
 }

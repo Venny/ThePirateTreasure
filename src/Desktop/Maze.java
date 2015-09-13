@@ -1,10 +1,10 @@
 package Desktop;
 
 import java.awt.Toolkit;
-
 import javax.swing.*;
 
 public class Maze {
+
 	public static void main(String[] args){
 		new Maze();
 	}
