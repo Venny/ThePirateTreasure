@@ -24,7 +24,7 @@ public class Executable {
 
 			// operator
 			if (ops.containsKey(token)) {
-				while (!operatorStack.isEmpty() && isHigerPrecedence(token, operatorStack.peek())) {
+				while (!operatorStack.isEmpty() && isHigherPrecedence(token, operatorStack.peek())) {
 					outputQueue.add(operatorStack.pop());
 				}
 				operatorStack.push(token);
@@ -113,7 +113,7 @@ public class Executable {
 		}
 	};
 
-	private static boolean isHigerPrecedence(String operator, String sub) {
+	private static boolean isHigherPrecedence(String operator, String sub) {
 		return (ops.containsKey(sub) && ops.get(sub).precedence >= ops.get(operator).precedence);
 	}
 

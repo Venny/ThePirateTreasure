@@ -52,6 +52,7 @@ public class Console extends WindowAdapter implements WindowListener, ActionList
         frame.getContentPane().add(input, BorderLayout.NORTH);
         frame.getContentPane().add(new JScrollPane(textArea),BorderLayout.CENTER);
         frame.getContentPane().add(button,BorderLayout.SOUTH);
+        frame.setIconImage(Toolkit.getDefaultToolkit().getImage("res/flag.png"));
         frame.setVisible(true);
         frame.setDefaultCloseOperation(frame.HIDE_ON_CLOSE);
 
