@@ -1,4 +1,8 @@
-/bin/
+/bin/*
+!/bin/res
+/bin/res/*
+!/bin/res/*.jar
 
 /.idea/
 *.iml
+ThePirateTreasure.eml
