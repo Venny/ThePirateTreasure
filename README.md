@@ -18,8 +18,11 @@ $ aSum(inc(a),inc(b))
     /Please note that a, b, inc(), squareSum() are predefined/
 
 * Desktop package - includes the main board of the game and a simple Console window. For presentation of the main graphical elements is used Swing & jPanel. 
+The implementation of the console is based on ["Simple JAVA Console"].
 > A screenshot of the maze:
 <img src="images/ThePirateTreasureBoard.png" name="The Pirate Game" width="700" height="500"/>
 
     > A screenshot of the console:
 <img src="images/ThePirateTreasureConsole.png" name="The Pirate Game" width="700" height="500"/>
+
+["Simple JAVA Console"]: <http://www.comweb.nl/java/Console/Console.html>
